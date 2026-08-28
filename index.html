@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070a12" />
+  <meta name="description" content="ASCEND: Iron Path — an offline-first, game-inspired strength and cardio tracker." />
+  <title>ASCEND // Iron Path</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app-shell">
+    <header class="topbar">
+      <button class="brand" data-nav="home" aria-label="Go home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span><b>ASCEND</b><small>IRON PATH</small></span>
+      </button>
+      <div class="topbar-actions">
+        <button id="installBtn" class="icon-btn hidden" title="Install app" aria-label="Install app">＋</button>
+        <button id="quickTimerBtn" class="icon-btn" title="Rest timer" aria-label="Open rest timer">⏱</button>
+        <button id="notifBtn" class="icon-btn" title="Notifications" aria-label="Notification settings">🔔</button>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1"></main>
+
+    <nav class="bottom-nav" aria-label="Primary navigation">
+      <button data-nav="home" class="active"><span>⌂</span><small>Home</small></button>
+      <button data-nav="train"><span>⚔</span><small>Train</small></button>
+      <button data-nav="cardio"><span>◉</span><small>Cardio</small></button>
+      <button data-nav="progress"><span>↗</span><small>Progress</small></button>
+      <button data-nav="quests"><span>✦</span><small>Quests</small></button>
+      <button data-nav="more"><span>☰</span><small>More</small></button>
+    </nav>
+  </div>
+
+  <dialog id="modal" class="app-modal">
+    <div class="modal-head">
+      <h2 id="modalTitle">ASCEND</h2>
+      <button id="modalClose" class="icon-btn" aria-label="Close">✕</button>
+    </div>
+    <div id="modalBody"></div>
+  </dialog>
+
+  <dialog id="onboarding" class="onboarding-modal">
+    <form id="onboardingForm" method="dialog">
+      <div class="onboard-hero">
+        <div class="energy-core"><span></span></div>
+        <p class="eyebrow">SYSTEM INITIALIZATION</p>
+        <h1>Begin your Iron Path.</h1>
+        <p>Build strength. Reduce body fat steadily. Earn progression for the work you actually complete.</p>
+      </div>
+      <div class="form-grid">
+        <label>Name / callsign<input id="obName" autocomplete="name" placeholder="e.g. Claudio" /></label>
+        <label>Age <input id="obAge" type="number" min="16" max="100" placeholder="Optional" /></label>
+        <label>Height (cm)<input id="obHeight" type="number" min="120" max="230" value="170" required /></label>
+        <label>Starting weight (kg)<input id="obWeight" type="number" min="40" max="350" step="0.1" value="130" required /></label>
+        <label>Program start<input id="obStart" type="date" required /></label>
+        <label>Preferred reminder<input id="obTime" type="time" value="18:00" /></label>
+      </div>
+      <fieldset class="goal-pick">
+        <legend>Primary mission</legend>
+        <label><input type="radio" name="goal" value="recomp" checked /> Lose fat + build muscle</label>
+        <label><input type="radio" name="goal" value="strength" /> Strength first</label>
+        <label><input type="radio" name="goal" value="fitness" /> Fitness first</label>
+      </fieldset>
+      <p class="safety-note">ASCEND is a training tracker, not a medical device. Start conservatively and stop for chest pain, fainting, unusual severe breathlessness, or sharp/increasing joint pain.</p>
+      <button class="primary big" value="default">ENTER THE PATH</button>
+    </form>
+  </dialog>
+
+  <template id="toastTemplate"><div class="toast"></div></template>
+  <div id="toastHost" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

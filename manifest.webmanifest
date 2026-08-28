@@ -1,0 +1,14 @@
+{
+  "name": "ASCEND: Iron Path",
+  "short_name": "ASCEND",
+  "description": "A game-inspired strength, cardio and progress tracker.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#070a12",
+  "theme_color": "#070a12",
+  "orientation": "portrait-primary",
+  "icons": [
+    {"src":"assets/icon-192.png","sizes":"192x192","type":"image/png"},
+    {"src":"assets/icon-512.png","sizes":"512x512","type":"image/png"}
+  ]
+}
